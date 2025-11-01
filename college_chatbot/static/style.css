@@ -1,0 +1,231 @@
+/* This is the CSS file for the "CENTERED CHAT WINDOW" design.
+   It removes all corner, popup, and toggle button styles.
+*/
+
+/* 1. Basic Page Styling */
+body, html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f0f2f5; /* Light grey background */
+    display: flex;
+    justify-content: center; /* Horizontally centers the chat */
+    align-items: center;     /* Vertically centers the chat */
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Prevents scrollbars on the main page */
+}
+
+/* 2. The Main Chat Window (Centered) */
+#chat-container {
+    width: 100%;
+    max-width: 500px;  /* Max width of the chat window */
+    height: 90vh;      /* 90% of the viewport height */
+    max-height: 700px; /* Max height */
+    
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* This container is automatically centered by the 'body' styles */
+}
+
+/* 3. Chat Header */
+#chat-header {
+    background: linear-gradient(90deg, #ff5e00, #ff7a28);
+    color: white;
+    padding: 16px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#logo {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: contain;
+    margin-right: 12px;
+    background: white; /* White background for the placeholder */
+    padding: 2px;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.header-content strong {
+    font-size: 1.1rem;
+}
+
+.header-content div {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #4caf50; /* Green dot */
+    border-radius: 50%;
+    margin-right: 6px;
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+/* 4. Chat Message Window */
+#chat-window {
+    flex-grow: 1; /* This makes the window fill the available space */
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between messages */
+    background: #f9f9f9; /* Slightly off-white message area */
+}
+
+.message {
+    padding: 12px 18px;
+    border-radius: 20px;
+    max-width: 80%;
+    line-height: 1.5;
+    word-wrap: break-word;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.message p {
+    margin: 0;
+}
+
+.message .source {
+    font-size: 0.75rem;
+    color: #65676b;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.user-msg {
+    background: #007bff; /* Blue for user */
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.bot-msg {
+    background: #e4e6eb;
+    color: #050505;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+/* This formats the Markdown (bullets, bold) from the bot */
+.bot-msg p {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+.bot-msg p:last-child {
+    margin-bottom: 0;
+}
+.bot-msg ul, .bot-msg ol {
+    padding-left: 20px;
+    margin-bottom: 0.5rem;
+}
+.bot-msg li {
+    margin-bottom: 0.25rem;
+}
+.bot-msg strong {
+    color: #000;
+}
+
+/* 5. Chat Input Form */
+#chat-form {
+    display: flex;
+    border-top: 1px solid #ddd;
+    padding: 12px;
+    background: #ffffff;
+    align-items: center;
+}
+
+#chat-input {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 12px 18px;
+    font-size: 1rem;
+    margin-right: 8px;
+    outline: none; /* No blue box on click */
+}
+#chat-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
+}
+
+/* Mic and Send Buttons */
+#mic-btn, #chat-submit {
+    background: #f0f0f0;
+    color: #555;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-right: 8px;
+    flex-shrink: 0; /* Prevents buttons from shrinking */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+#chat-submit {
+    background: #007bff; /* Blue send button */
+    color: white;
+    border-color: #007bff;
+    margin-right: 0;
+}
+
+#mic-btn:hover {
+    background: #e0e0e0;
+}
+
+#chat-submit:hover {
+    background: #0056b3;
+}
+
+/* Style for when mic is recording */
+#mic-btn.recording {
+    background: #ff4136; /* Red */
+    color: white;
+    border-color: #ff4136;
+}
+
+/* Style for when buttons are disabled */
+#chat-submit:disabled, #mic-btn:disabled {
+    background: #a0a0a0;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Scrollbar styling (optional, but professional) */
+#chat-window::-webkit-scrollbar {
+    width: 6px;
+}
+#chat-window::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+#chat-window::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+#chat-window::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+

@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBU Assistant Chat</title>
+    
+    <!-- This links to your new "centered" style.css file -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    
+    <!-- This library converts Markdown (like * bullet points) into HTML -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <!-- This adds the tab icon and prevents the "favicon.ico" 404 error -->
+    <link rel="icon" href="https://placehold.co/32x32/ff5e00/FFFFFF?text=SBU" type="image/x-icon">
+</head>
+<body>
+
+    <!-- This is the main chat window container -->
+    <!-- The new style.css will center this on the page -->
+    <div id="chat-container">
+        
+        <!-- Header Section -->
+        <div id="chat-header">
+            <img id="logo" src="https://placehold.co/40x40/FFFFFF/ff5e00?text=SBU" alt="SBU Logo">
+            <div class="header-content">
+                <strong>SBU Assistant Online</strong>
+                <div><span class="status-dot"></span>Online</div>
+            </div>
+        </div>
+        
+        <!-- This is where all the messages will appear -->
+        <div id="chat-window">
+            <!-- This is the bot's starting welcome message -->
+            <div class="message bot-msg">
+                <p>Hello! I'm your college assistant. Ask me anything about courses, fees, or admissions.</p>
+            </div>
+        </div>
+        
+        <!-- This is the form for typing a message -->
+        <form id="chat-form">
+            <input type="text" id="chat-input" placeholder="Type your question..." autocomplete="off" required>
+            <button type="button" id="mic-btn">🎤</button>
+            <button type="submit" id="chat-submit">
+                <!-- Send Icon (SVG) -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+            </button>
+        </form>
+    </div>
+    
+    <!-- This links to your new "centered" script.js file -->
+    <!-- This MUST be at the bottom of the body -->
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
+

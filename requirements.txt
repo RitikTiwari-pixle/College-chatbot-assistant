@@ -1,0 +1,12 @@
+django
+django-cors-headers
+langchain
+langchain-google-genai
+chromadb
+beautifulsoup4
+lxml
+requests
+python-dotenv
+langchain-community
+sentence-transformers
+gpt4all
